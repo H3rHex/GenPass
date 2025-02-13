@@ -8,7 +8,7 @@ const passwdElement = document.getElementById("GeneratedPassword");
 
 document.addEventListener("DOMContentLoaded", () => {
     generatePasswd();
-    copyPasswd();
+    //copyPasswd();
 });
 
 function generatePasswd() {
