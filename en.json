@@ -1,0 +1,15 @@
+{
+    "title": "GenPass",
+    "subtitle": "by H3rHex",
+    "passwordPlaceholder": "Generating password...",
+    "copyButton": "Copy",
+    "reloadButton": "Reload",
+    "customizeTitle": "Customize your password",
+    "lengthLabel": "Password Length",
+    "optionsLabel": "Options",
+    "upperCase": "Upper Case",
+    "lowerCase": "Lower Case",
+    "numbers": "Numbers",
+    "symbols": "Symbols",
+    "messagepopup" : "Your password was successfully copied"
+}

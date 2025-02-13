@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="./Assets/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>GenPass</title>
+</head>
+<body>
+    <header>
+        <h1 data-translate="title">GenPass</h1>
+        <h3 data-translate="subtitle">by H3rHex</h3>
+        
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="es">🇪🇸 Español</option>
+                <option value="en">🇬🇧 English</option>
+            </select>
+        </div>
+
+    </header>
+
+    <main id="main">
+        <div class="passwordContainer">
+            <p id="GeneratedPassword"> </p>
+            <div class="buttonContainer">
+                <!-- Botón de copiar (sin cambios) -->
+                <button onclick="copyPasswd()">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.15" d="M19 21V4.5H15V6H9V4.5H5V21H19Z" fill="#73777ca6" />
+                        <path d="M15 12L10.8 16.2L9 14.4M9 4.5H5V21H19V4.5H15M9 4.5V6H15V4.5M9 4.5V3H15V4.5" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+    
+                <!-- Botón de recargar (sin cambios) -->
+                <button onclick="generatePasswd()">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3V9M3 9H9M3 9C5.32744 6.91141 7.48287 4.54676 10.7453 4.08779C12.6777 3.81593 14.6461 4.17941 16.3539 5.12343C18.0617 6.06746 19.4164 7.54091 20.2139 9.32177M21 21V15M21 15H15M21 15C18.6725 17.0886 16.5171 19.4532 13.2546 19.9122C11.3223 20.1841 9.35388 19.8206 7.64607 18.8766C5.93826 17.9325 4.58353 16.4591 3.78601 14.6782" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    
+        <div class="passwordConfigContainer">
+            <h2 data-translate="customizeTitle">Customize your password</h2>
+            <div class="divider"></div>
+            <div class="passwordConfig">
+                <div>
+                    <p data-translate="lengthLabel">Password Length</p>
+                    <div class="passLength">
+                        <input type="number" id="number" class="number" min="1" max="50" value="12">
+                        <input type="range" id="slider" class="slider" min="1" max="50" value="12">
+                    </div>
+                </div>
+                <div class="passOptions">
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="upperCase" checked>
+                            <label for="upperCase" data-translate="upperCase">Upper Case</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lowerCase" checked>
+                            <label for="lowerCase" data-translate="lowerCase">Lower Case</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="numbers" checked>
+                            <label for="numbers" data-translate="numbers">Numbers</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="symbols" checked>
+                            <label for="symbols" data-translate="symbols">Symbols</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="copyPopUp" style="display: none;">
+        <button onclick="messagePopUp()"><svg fill="#ff0000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-165.88 -165.88 792.53 792.53" xml:space="preserve" stroke="#ff0000" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)"><rect x="-165.88" y="-165.88" width="792.53" height="792.53" rx="396.265" fill="#ededed" strokewidth="0"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55 c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55 c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505 c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55 l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"></path> </g></svg></button>
+        <h2 data-translate="messagepopup">Tu contraseña se copio con exito</h2>
+        <div class="copyPopUp-links">
+            <a href="https://h3rhex.github.io/H3rHex/" target="_blank" title="H3rHex GitHub">
+                <img id="git" src="./Assets/github-mark.png" alt="gitHub-link">
+            </a>
+        </div>
+       
+    </div>
+
+    <script src="./script.js"></script>
+   <script src="./translate.js"></script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/*
+JetBrainsMono
+Roboto
+*/
+:root {
+    /* Fondo principal: Gris claro casi blanco para una apariencia limpia */
+    --background-color: #f1f1f1;
+  
+    /* Texto principal: Gris oscuro para buena legibilidad */
+    --text-color: #333333;
+  
+    /* Bordes y elementos secundarios: Gris medio para sutil separación */
+    --border-color: #d1d5db;
+  
+    /* Color primario: Azul para botones y elementos destacados */
+    --primary-color: #1e88e5;
+  
+    /* Azul más oscuro para efectos hover en botones */
+    --primary-hover-color: #1565c0;
+  
+    /* Azul suave para fondos de elementos secundarios o destacados */
+    --secondary-color: #ffffff;
+  
+    /* Mensajes de éxito (por ejemplo, cuando la contraseña es fuerte) */
+    --success-color: #4caf50;
+  
+    /* Mensajes de advertencia (por ejemplo, cuando la contraseña es débil) */
+    --warning-color: #ff9800;
+  
+    /* Mensajes de error (por ejemplo, cuando la contraseña no cumple requisitos) */
+    --error-color: #e53935;
+  }
+  
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--background-color);
+
+    overflow-y: hidden;
+
+    color: var(--text-color);
+    user-select: none;
+}
+
+p, label{
+    font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+}
+
+
+/* HEADER */
+
+header {
+    text-align: center;
+    margin: 0, auto;
+    padding-bottom: 50px;
+}
+
+header *{
+    margin: 0.4px;
+    font-family: "Roboto";
+}
+
+header h3{
+    font-weight: 200;
+    font-size: 0.9rem;
+    
+}
+
+.language-selector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.language-selector select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/*MAIN*/
+main{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    
+    width: 100%;
+    height: 100vh;
+
+}
+
+/* PASSWORD CONTAINER */
+#GeneratedPassword {
+    font-family: "JetBrains Mono", system-ui, -apple-system, BlinkMacSystemFont, 
+                 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+                 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    
+    white-space: nowrap; /* Evita saltos de línea */
+    overflow: hidden; /* Evita desbordamientos */
+    text-overflow: ellipsis; /* Agrega "..." si el texto es muy largo */
+    user-select: all;
+}
+
+
+.passwordContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    overflow: hidden;
+
+    width: 60%;
+    height: 100px;
+    margin: 20px;
+
+    background-color: var(--secondary-color);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    filter: drop-shadow(4px 4px 5px #73777ca6);
+}
+
+.passwordContainer button{
+    width: 50px;
+    height: 60px;
+
+    background: transparent;
+    border: none;
+
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.passwordContainer button:hover{
+    width: 54px;
+    height: 64px;
+}
+
+.passwordContainer p{
+    padding-left: 50px;
+}
+
+.buttonContainer{
+    display: flex;
+
+
+    padding-right: 50px;
+    margin-left: 30px;
+}
+
+/*PASSWORD CONFIG*/
+.passwordConfig{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;    
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+    
+}
+
+.passwordConfigContainer{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+
+    width: 60%;
+    height: 300px;
+    
+
+    background-color: var(--secondary-color);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    filter: drop-shadow(4px 4px 5px #73777ca6);
+}
+
+.passwordConfigContainer h2{
+    font-family: "JetBrainsMono", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px;
+}
+
+.passOptions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.passLength{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.checkbox-item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input[type="range"] {
+    -webkit-appearance: none; /* Quita los estilos predeterminados en Chrome/Safari */
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: hsl(249, 63%, 89%);
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+/* Estilo del thumb (botón que se arrastra) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #cc32bf;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="number"] {
+    width: 100px;
+    padding: 8px;
+    font-size: 18px;
+    border: 2px solid hsla(305, 61%, 50%, 0.5);
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    transition: border 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border: 2px solid #cc32bf;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--success-color);
+    border-radius: 10px;
+    transition: all 0.2s; 
+}
+
+/*COPY POP UP*/
+#copyPopUp {
+    position: absolute;
+    top: 15vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    width: 40%;
+    height:50%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+    background-color: var(--secondary-color);
+    border: 4px solid var(--border-color);
+    border-radius: 20px;
+
+    z-index: 9999;
+}
+
+#copyPopUp h2 {
+    text-align: center;
+}
+
+#copyPopUp img{
+    width: 128px;
+    height: 128px;
+
+    border-radius: 20px;
+}
+
+#copyPopUp button {
+    background: none;
+    border: none;
+    width: 8%;
+    height: 7%;
+
+    margin: 10px;
+    transition: transform ease-in 0.2s;
+    cursor: pointer;
+}
+
+#copyPopUp button:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.copyPopUp-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyPopUp-links a{
+    transition: all linear 0.3s;
+}
+
+.copyPopUp-links a:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(2px 5px 9px #cc32bf8f);
+
+}
+
+.popUp {
+    animation: popUp 0.3s forwards;
+}
+
+.popUp-R {
+    animation: popUp 0.1s reverse;
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*Media Query*/
+@media screen and (max-width: 430px){
+    .language-selector select {
+        font-size: 10px;
+    }
+    
+
+    header h1{
+        font-size: 1.3rem;
+    }
+    
+    header h3{
+        font-size: 0.7rem
+    }
+
+    .passwordContainer {
+        width: 90%;
+    }
+
+    .passwordContainer button {
+        width: 40px;
+        height: 50px;
+    }
+
+    .passwordConfigContainer h2{
+        font-size: 16px;
+    }
+
+    .passwordContainer button:hover {
+        width: 44px;
+        height: 54px;
+    }
+    
+    .passwordConfigContainer{
+        width: 90%;
+        height: 400px;
+    }
+
+    .passwordConfig{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        gap: 20px;
+        text-align: center;
+    }
+
+    #GeneratedPassword{
+        font-size: 14px;
+    }
+
+    input[type="number"] {
+        width: 60px;
+        padding: 4px;
+        font-size: 18px;
+        border: 2px solid hsla(305, 61%, 50%, 0.5);
+        border-radius: 8px;
+        outline: none;
+        text-align: center;
+        transition: border 0.3s ease;
+    }
+
+    /*POP UP*/
+    #copyPopUp{
+        width: 50%;
+        height:30%;
+    
+    }
+
+    #copyPopUp button {
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
+    }
+
+    #copyPopUp h2{
+        font-size: 17px;
+    }
+
+    #copyPopUp img {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+
