@@ -379,8 +379,8 @@ input[type="checkbox"] {
     }
 
     .passwordContainer button {
-        width: 40px;
-        height: 50px;
+        width: 50px;
+        height: 40px;
     }
 
     .passwordConfigContainer h2{
@@ -430,8 +430,8 @@ input[type="checkbox"] {
     }
 
     #copyPopUp button {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         margin-top: 10px;
     }
 
